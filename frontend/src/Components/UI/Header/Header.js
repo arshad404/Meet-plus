@@ -14,7 +14,9 @@ const Header = () => {
     <div className="header">
       <div className="logo">
         <img src={Logo} />
-        <span className="help-text">Meet plus</span>
+        <span className="help-text">
+          <b>Meet</b> plus
+        </span>
       </div>
       <div className="action-btn">
         <FontAwesomeIcon className="icon-block" icon={faQuestionCircle} />
