@@ -7,12 +7,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./MeetingInfo.scss";
 
-const MeetingInfo = () => {
+const MeetingInfo = ({ setMeetInfoPopup, url }) => {
   return (
     <div className="meeting-info-block">
       <div className="meeting-header">
         <h3>Your meeting's ready</h3>
-        <FontAwesomeIcon className="icon" icon={faTimes} />
+        <FontAwesomeIcon
+          className="icon"
+          icon={faTimes}
+          onClick={() => {
+            setMeetInfoPopup(false);
+          }}
+        />
       </div>
       <button className="add-people-btn">
         <FontAwesomeIcon className="icon" icon={faUser} />
@@ -22,8 +28,12 @@ const MeetingInfo = () => {
         Or share this meeting link with others you want in the meeting
       </p>
       <div className="meet-link">
-        <span>URL</span>
-        <FontAwesomeIcon className="icon" icon={faCopy} />
+        <span>{url}</span>
+        <FontAwesomeIcon
+          className="icon"
+          icon={faCopy}
+          onClick={() => navigator.clipboard.writeText(url)}
+        />
       </div>
       <div className="permission-text">
         <FontAwesomeIcon className="icon red" icon={faShieldAlt} />

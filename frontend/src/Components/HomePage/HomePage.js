@@ -1,9 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo, faKeyboard } from "@fortawesome/free-solid-svg-icons";
 import "./HomePage.scss";
+import shortId from "shortid";
+import { useHistory } from "react-router-dom";
 import Header from "../UI/Header/Header";
 
 const Homepage = () => {
+  const history = useHistory();
+  const startCall = () => {
+    const uid = shortId.generate();
+    history.push(`/${uid}#init`);
+  };
+
   return (
     <div className="home-page">
       <Header />
@@ -16,7 +24,7 @@ const Homepage = () => {
               meetings, Meet Plus, to make it free and available for all.
             </p>
             <div className="action-btn">
-              <button className="btn green">
+              <button className="btn green" onClick={startCall}>
                 <FontAwesomeIcon className="icon-block" icon={faVideo} />
                 New Meeting
               </button>
