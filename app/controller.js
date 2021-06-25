@@ -3,6 +3,7 @@ const { saveCallId, getCallId } = require("./model");
 exports.saveCallId = async (req, res) => {
   try {
     const { id, signalData } = req.body;
+    // console.log(id, signalData);
     await saveCallId(id, signalData);
     res.status(200).send(true);
   } catch (ex) {
@@ -13,7 +14,9 @@ exports.saveCallId = async (req, res) => {
 exports.getCallId = async (req, res) => {
   try {
     const { id } = req.params;
+    // console.log(id);
     const code = await getCallId(id);
+    console.log(code);
     res.status(200).send({ code });
   } catch (ex) {
     res.status(400).send(ex.message);

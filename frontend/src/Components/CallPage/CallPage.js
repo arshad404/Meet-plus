@@ -23,7 +23,7 @@ const initialState = [];
 const CallPage = () => {
   const history = useHistory();
   let { id } = useParams();
-  const isAdmin = window.location.hash == "#init" ? true : false;
+  const isAdmin = window.location.hash === "#init" ? true : false;
   const url = `${window.location.origin}${window.location.pathname}`;
   let alertTimeout = null;
 
